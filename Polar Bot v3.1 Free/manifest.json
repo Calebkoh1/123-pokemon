@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Polar Assist Bot v3",
+  "version": "1.0",
+  "description": "Automates the checkout process for multiple shopping sites",
+  "permissions": ["storage", "activeTab", "scripting", "webNavigation", "tabs", "proxy"],
+  "host_permissions": [
+    "*://www.target.com/*"
+  ],
+  "action": {
+    "default_popup": "ui/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "ui/options/options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "common/utils.js",
+        "common/element-finder.js",
+        "common/storage.js",
+        "common/checkout-base.js",
+        "sites/target/selectors.js",
+        "sites/target/checkout.js",
+        "monitors/site-monitor.js"
+      ],
+      "matches": [
+        "*://www.target.com/*"
+      ]
+    }
+  ]
+}

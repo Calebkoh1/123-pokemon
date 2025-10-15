@@ -1,0 +1,284 @@
+/* Price Check Styling */
+.price-check-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Settings View */
+#price-check-settings-view {
+  padding: 15px;
+  background-color: #0a0c1b; /* Original dark navy background */
+  color: #c8cbf6; /* Original light lavender text */
+}
+
+#price-check-settings-view .container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#price-check-settings-view .header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+  border-bottom: none;
+  box-shadow: none;
+  padding-bottom: 0;
+}
+
+#price-check-settings-view h1 {
+  flex-grow: 1;
+  font-size: 1.5em;
+  margin: 0 0 0 10px;
+  color: #c8cbf6; /* Original light lavender text */
+}
+
+#price-check-settings-view .section {
+  background-color: #151833; /* Original slightly lighter navy */
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 15px;
+  color: #c8cbf6; /* Original light lavender text */
+  border: 1px solid #272d5e; /* Original medium navy blue border */
+}
+
+#price-check-settings-view .status-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.toggle-wrapper {
+  position: relative;
+  width: 40px;
+  height: 22px;
+}
+
+.toggle-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #72767d; /* Discord grey for unchecked */
+  transition: .4s;
+  border-radius: 34px;
+  border: none;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff; /* White circle */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider,
+.toggle-active .toggle-slider {
+  background-color: #7289da; /* Discord blurple */
+  box-shadow: 0 0 2px #7289da; /* Subtle glow */
+}
+
+input:checked + .toggle-slider:before,
+.toggle-active .toggle-slider:before {
+  background-color: #ffffff; /* White circle when on */
+  transform: translateX(18px);
+}
+
+/* Price check items */
+.price-check-items {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.price-check-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #0a0c1b; /* Match Discord dark navy background */
+  border-radius: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #272d5e; /* Match Discord medium navy blue border */
+}
+
+.price-check-item:last-child {
+  border-bottom: 1px solid #272d5e; /* Consistent border */
+}
+
+.price-check-item-details {
+  flex-grow: 1;
+}
+
+.price-check-item-sku {
+  font-weight: bold;
+  color: #c8cbf6; /* Match Discord light lavender text */
+}
+
+.price-check-item-price {
+  color: #a3a7d4; /* Match Discord medium lavender text */
+}
+
+.price-check-item-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.price-check-item-edit,
+.price-check-item-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0 4px;
+}
+
+.price-check-item-edit {
+  color: #7289da; /* Discord blurple for edit button */
+}
+
+.price-check-item-delete {
+  color: #db5461; /* Discord error red */
+}
+
+/* Input styles */
+.price-check-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.price-check-input-form input, 
+.price-check-input-form button,
+.price-check-input-form textarea {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Match Discord medium navy blue border */
+  background-color: #0a0c1b; /* Match Discord dark navy background */
+  color: #c8cbf6; /* Match Discord light lavender text */
+}
+
+/* Fix input width */
+#price-check-sku-input {
+  width: 100px;
+  max-width: 100px;
+}
+
+#price-check-price-input {
+  width: 80px;
+  max-width: 80px;
+}
+
+.price-check-input-form button {
+  background-color: #272d5e; /* Match Discord medium navy blue button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.price-check-input-form button:hover {
+  background-color: #374082; /* Match Discord brighter blue on hover */
+}
+
+.mass-input-container {
+  margin-top: 15px;
+}
+
+.mass-input-container textarea {
+  width: 90%;
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Match Discord medium navy blue border */
+  background-color: #0a0c1b; /* Match Discord dark navy background */
+  color: #c8cbf6; /* Match Discord light lavender text */
+}
+
+/* Style for the "Add All" button to match "Add" button */
+#price-check-mass-add-btn {
+  background-color: #272d5e; /* Match Discord medium navy blue button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+#price-check-mass-add-btn:hover {
+  background-color: #374082; /* Match Discord brighter blue on hover */
+}
+
+/* Copy buttons styling */
+.copy-buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.copy-buttons-container button {
+  background-color: #272d5e; /* Match Discord medium navy blue button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.copy-buttons-container button:hover {
+  background-color: #374082; /* Match Discord brighter blue on hover */
+}
+
+/* Status indicators */
+.status-online {
+  color: #374082; /* Match Discord brighter blue */
+}
+
+.status-offline {
+  color: #db5461; /* Match Discord error red */
+}
+
+.empty-message {
+  text-align: center;
+  color: #a3a7d4; /* Match Discord medium lavender text */
+  font-style: italic;
+  padding: 10px;
+}

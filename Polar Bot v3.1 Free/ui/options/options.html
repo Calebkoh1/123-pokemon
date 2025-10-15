@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polar Assist Bot v2 Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header>
+    <h1>Polar Assist Bot v2 Settings</h1>
+    <a href="../popup/popup.html" class="btn">Back to Popup</a>
+  </header>
+
+  <div class="container">
+    <div class="success-message" id="success-message"></div>
+    <div class="error-message" id="error-message"></div>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="profiles">Billing Profiles</div>
+      <div class="tab" data-tab="settings">General Settings</div>
+      <div class="tab" data-tab="import-export">Import/Export</div>
+      <div class="tab" data-tab="about">About</div>
+    </div>
+
+    <!-- Billing Profiles Tab -->
+    <div class="tab-content active" id="profiles-tab">
+      <div class="info-banner">
+        <p>This bot is built to work hand-in-hand with a Discord monitor, allowing for the fastest possible checkout experience.</p>
+        <p>To get access to a compatible monitor, join our Discord community: <a href="https://discord.gg/EnC22ZvR45" target="_blank">Click here to join</a> (Link: https://discord.gg/EnC22ZvR45)</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span>Your Saved Billing Profiles</span>
+          <button class="btn" id="add-profile-btn">Add New Profile</button>
+        </div>
+        <div class="card-body">
+          <ul class="profile-list" id="profile-list">
+            <li class="empty-state">Loading profiles...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- General Settings Tab -->
+    <div class="tab-content" id="settings-tab">
+      <div class="info-banner">
+        <p>This bot is built to work hand-in-hand with a Discord monitor, allowing for the fastest possible checkout experience.</p>
+        <p>To get access to a compatible monitor, join our Discord community: <a href="https://discord.gg/EnC22ZvR45" target="_blank">Click here to join</a> (Link: https://discord.gg/EnC22ZvR45)</p>
+      </div>
+      <div class="card">
+        <div class="card-header">Global Settings</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="remember-toggle">
+              Remember extension state (ON/OFF) between browser sessions
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="auto-submit-order">
+              Automatically complete order (if unchecked, will stop before final submission)
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="add-random-delays">
+              Add random delays between actions (not recommended)
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="debug-mode">
+              Enable Debug Mode (logs additional information to console)
+            </label>
+          </div>
+          <button class="btn" id="save-settings-btn">Save Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Import/Export Tab -->
+    <div class="tab-content" id="import-export-tab">
+      <div class="info-banner">
+        <p>This bot is built to work hand-in-hand with a Discord monitor, allowing for the fastest possible checkout experience.</p>
+        <p>To get access to a compatible monitor, join our Discord community: <a href="https://discord.gg/EnC22ZvR45" target="_blank">Click here to join</a> (Link: https://discord.gg/EnC22ZvR45)</p>
+      </div>
+      <div class="card">
+        <div class="card-header">Import/Export Profiles</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="export-data">Export Profiles (copy this text)</label>
+            <textarea id="export-data" readonly></textarea>
+          </div>
+          <button class="btn" id="copy-export-btn">Copy to Clipboard</button>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+
+          <div class="form-group">
+            <label for="import-data">Import Profiles (paste JSON below)</label>
+            <textarea id="import-data" placeholder='Paste JSON data here...'></textarea>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="replace-existing">
+              Replace all existing profiles (if unchecked, will merge)
+            </label>
+          </div>
+          <button class="btn" id="import-btn">Import Profiles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Tab -->
+    <div class="tab-content" id="about-tab">
+      <div class="info-banner">
+        <p>This bot is built to work hand-in-hand with a Discord monitor, allowing for the fastest possible checkout experience.</p>
+        <p>To get access to a compatible monitor, join our Discord community: <a href="https://discord.gg/EnC22ZvR45" target="_blank">Click here to join</a> (Link: https://discord.gg/EnC22ZvR45)</p>
+      </div>
+      <div class="card">
+        <div class="card-header">About Polar Assist Bot v2</div>
+        <div class="card-body">
+          <p>This bot was made by yours truly, Botter Boy Nova: <a href="https://www.youtube.com/botterboynova" target="_blank">https://www.youtube.com/botterboynova</a></p>
+          <p>Guide on how to get Pokemon cards for retail: <a href="https://youtu.be/0MYkaqpK8Zc" target="_blank">https://youtu.be/0MYkaqpK8Zc</a></p>
+          <p>Join our free discord community! <a href="https://discord.gg/EnC22ZvR45" target="_blank">https://discord.gg/EnC22ZvR45</a></p>
+          <p>Join our paid discord community! <a href="https://whop.com/polarchefs/" target="_blank">https://whop.com/polarchefs/</a></p>
+          <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+          <h4>Disclaimer</h4>
+          <p>This bot is fully automated and designed for speed — once triggered, it will attempt to check out items as quickly as possible. By using this bot, you acknowledge that you are fully responsible for any purchases made, including accidental or unintended checkouts. All billing and shipping information is stored locally in your browser, and is never transmitted to us or stored externally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Profile Modal -->
+  <div class="modal" id="profile-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="modal-title">Add New Profile</span>
+        <span class="close" id="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="profile-form">
+          <input type="hidden" id="profile-id">
+          <div class="form-group">
+            <label for="profile-name">Profile Name</label>
+            <input type="text" id="profile-name" placeholder="e.g., My Default Profile" required>
+          </div>
+
+          <div class="form-group">
+            <h3>Shipping Information</h3>
+            <div class="form-row">
+              <div class="form-col">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" required>
+              </div>
+              <div class="form-col">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address1">Address Line 1</label>
+              <input type="text" id="address1" required>
+            </div>
+            <div class="form-group">
+              <label for="address2">Address Line 2 (optional)</label>
+              <input type="text" id="address2">
+            </div>
+            <div class="form-row">
+              <div class="form-col">
+                <label for="city">City</label>
+                <input type="text" id="city" required>
+              </div>
+              <div class="form-col">
+                <label for="state">State</label>
+                <input type="text" id="state" required> <!-- Consider changing to select -->
+              </div>
+              <div class="form-col">
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <h3>Payment Information</h3>
+            <div class="form-group">
+              <label for="card-number">Card Number</label>
+              <input type="text" id="card-number" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
+            </div>
+            <div class="form-row">
+              <div class="form-col">
+                <label for="expiry-month">Expiry Month</label>
+                 <input type="text" id="expiry-month" inputmode="numeric" pattern="(0[1-9]|1[0-2])" maxlength="2" placeholder="MM" required>
+              </div>
+              <div class="form-col">
+                <label for="expiry-year">Expiry Year</label>
+                 <input type="text" id="expiry-year" inputmode="numeric" pattern="(20)\d{2}" maxlength="4" placeholder="YYYY" required>
+              </div>
+              <div class="form-col">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" inputmode="numeric" pattern="\d{3,4}" maxlength="4" placeholder="123" required>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-profile">Cancel</button>
+        <button class="btn" id="save-profile">Save Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REMOVED type="module" -->
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,767 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 360px; /* Keep width or adjust as needed */
+  padding: 15px;
+  margin: 0;
+  background-color: #0a0c1b; /* Very dark navy/midnight blue */
+  color: #c8cbf6; /* Light lavender text */
+  box-shadow: inset 0 0 20px rgba(39, 45, 94, 0.15); /* Subtle glow */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #272d5e; /* Medium navy blue */
+  box-shadow: 0 4px 6px -6px #151833; /* Subtle shadow */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 18px;
+  color: #c8cbf6; /* Light lavender text */
+}
+
+/* Main Toggle Switch */
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px; /* Slightly smaller */
+  height: 22px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #151833; /* Slightly lighter navy when off */
+  transition: .4s;
+  border-radius: 22px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #c8cbf6; /* Light lavender */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #3a70e3; /* Brighter blue when on */
+  box-shadow: 0 0 6px #3a70e3; /* Stronger glow */
+}
+
+input:checked + .slider:before {
+  background-color: #ffffff; /* White circle when on */
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px); /* Adjust translation */
+}
+
+.toggle-label {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Per-Site Configuration Section */
+.sites-config {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between site blocks */
+  margin-bottom: 15px;
+}
+
+.site-config {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 6px;
+  background-color: #151833; /* Slightly lighter navy background */
+}
+
+.site-logo {
+  width: 32px; /* Smaller logo */
+  height: 32px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.site-controls {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 10px;
+}
+
+/* Site-specific Toggle Switch */
+.site-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px; /* Even smaller */
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.site-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.site-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #151833; /* Slightly lighter navy */
+  transition: .4s;
+  border-radius: 20px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+.site-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #c8cbf6; /* Light lavender */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.site-toggle-switch input:checked + .site-slider {
+  background-color: #3a70e3; /* Brighter blue when on */
+  box-shadow: 0 0 6px #3a70e3; /* Stronger glow */
+}
+
+.site-toggle-switch input:checked + .site-slider:before {
+  background-color: #ffffff; /* White circle when on */
+}
+
+.site-toggle-switch input:checked + .site-slider:before {
+  transform: translateX(18px); /* Adjust translation */
+}
+
+/* Site Input Group (Quantity & Profile) */
+.site-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.site-quantity {
+  width: 50px; /* Fixed width for quantity */
+  padding: 4px 6px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+.site-profile-select {
+  flex-grow: 1; /* Allow profile select to take remaining space */
+  padding: 4px 6px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  max-width: 150px; /* Prevent it from getting too wide */
+}
+
+/* Global Settings Section */
+.section {
+  background-color: #151833; /* Slightly lighter navy */
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #c8cbf6; /* Light lavender */
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-row label {
+  margin-bottom: 0;
+  margin-left: 8px;
+  font-size: 13px;
+  color: #c8cbf6; /* Light lavender */
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 5px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Status Indicator */
+.status {
+  padding: 10px 12px;
+  border-radius: 6px;
+  background-color: #151833; /* Slightly lighter navy */
+  margin-top: 15px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #272d5e; /* Medium navy blue */
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.status-waiting .status-indicator {
+  background-color: #a3a7d4; /* Medium lavender for waiting */
+}
+
+.status-running .status-indicator {
+  background-color: #374082; /* Brighter blue for running */
+}
+
+.status-complete .status-indicator {
+  background-color: #272d5e; /* Medium navy blue for complete */
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #272d5e; /* Medium navy blue */
+  font-size: 11px;
+}
+
+.footer a {
+  color: #a3a7d4; /* Medium lavender link */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: #c8cbf6; /* Light lavender on hover */
+}
+
+/* Screen-reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+ /* Disabled elements */
+ .disabled {
+   opacity: 0.5;
+   pointer-events: none;
+ }
+
+ /* Settings Icon Button Style */
+ #discord-settings-btn {
+   transition: background-color 0.2s, color 0.2s; /* Add transition */
+   border-radius: 4px; /* Add slight rounding */
+   color: #a3a7d4; /* Medium lavender by default */
+ }
+ #discord-settings-btn:hover {
+   background-color: #151833; /* Slightly lighter navy background on hover */
+   color: #c8cbf6; /* Light lavender on hover */
+ }
+
+
+/* --- Appended Discord Monitor Styles --- */
+/* Scoped to the settings view container */
+
+#discord-settings-view {
+  /* Base Styles (applied within the container) */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  padding: 15px; /* Add padding inside the view */
+  border-radius: 8px; /* Match section rounding */
+  margin-top: 15px; /* Space from elements above */
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+#discord-settings-view .container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#discord-settings-view h1 {
+  font-size: 18px;
+  text-align: center;
+  color: #c8cbf6; /* Light lavender */
+  margin-bottom: 5px;
+}
+
+#discord-settings-view h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Status Section */
+#discord-settings-view #discord-status-container { /* Prefixed ID */
+  background-color: #151833; /* Slightly lighter navy */
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+#discord-settings-view .status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#discord-settings-view .status-online {
+  color: #374082; /* Brighter blue */
+}
+
+#discord-settings-view .status-offline {
+  color: #db5461; /* Error red */
+}
+
+#discord-settings-view .status-found {
+  color: #374082; /* Brighter blue */
+}
+
+#discord-settings-view .status-not-found {
+  color: #db5461; /* Error red */
+}
+
+/* Toggle Switch (re-using existing styles where possible, but scoping) */
+#discord-settings-view .toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#discord-settings-view .toggle-wrapper {
+  position: relative;
+  width: 40px;
+  height: 22px;
+}
+
+#discord-settings-view .toggle-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#discord-settings-view .toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #151833; /* Slightly lighter navy */
+  transition: .4s;
+  border-radius: 34px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+#discord-settings-view .toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #c8cbf6; /* Light lavender */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+#discord-settings-view input:checked + .toggle-slider {
+  background-color: #3a70e3; /* Brighter blue */
+  box-shadow: 0 0 6px #3a70e3; /* Stronger glow */
+}
+
+#discord-settings-view input:checked + .toggle-slider:before {
+  background-color: #ffffff; /* White circle when on */
+}
+
+#discord-settings-view input:checked + .toggle-slider:before {
+  transform: translateX(18px);
+}
+
+/* Small toggle for multi-SKU mode */
+#discord-settings-view .multi-sku-toggle-container .toggle-wrapper {
+  width: 28px;
+  height: 16px;
+}
+
+#discord-settings-view .multi-sku-toggle-container .toggle-slider:before {
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+}
+
+#discord-settings-view .multi-sku-toggle-container input:checked + .toggle-slider:before {
+  transform: translateX(12px);
+}
+
+#discord-settings-view .multi-sku-toggle-container {
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+/* Cooldown Settings */
+#discord-settings-view .cooldown-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#discord-settings-view .setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#discord-settings-view .setting-item input[type="number"] {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  text-align: center;
+}
+
+#discord-settings-view #save-cooldowns-btn { /* Prefixed ID */
+  margin-top: 8px;
+  align-self: flex-end;
+}
+
+/* Buttons */
+#discord-settings-view .btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+#discord-settings-view .btn-primary {
+  background-color: #272d5e; /* Medium navy blue */
+  color: white;
+}
+
+#discord-settings-view .btn-primary:hover {
+  background-color: #374082; /* Brighter blue */
+}
+
+#discord-settings-view .btn-danger {
+  background-color: #db5461; /* Error red */
+  color: white;
+}
+
+#discord-settings-view .btn-danger:hover {
+  background-color: #e07983; /* Lighter red */
+}
+
+#discord-settings-view .btn-secondary {
+  background-color: #1f2347; /* Dark navy blue */
+  color: white;
+}
+
+#discord-settings-view .btn-secondary:hover {
+  background-color: #272d5e; /* Medium navy blue */
+}
+
+#discord-settings-view .btn-small {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Sections */
+#discord-settings-view .section {
+  background-color: #151833; /* Slightly lighter navy */
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 0; /* Remove bottom margin if container has gap */
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+/* Monitored Items List */
+#discord-settings-view #discord-channels-container { /* Prefixed ID */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+  /* Add scrollbar styling for dark theme if desired */
+}
+
+#discord-settings-view .empty-message {
+  color: #a3a7d4; /* Medium lavender */
+  text-align: center;
+  padding: 10px 0;
+}
+
+#discord-settings-view .item-container {
+  background-color: #0a0c1b; /* Very dark navy */
+  border-radius: 4px;
+  padding: 10px;
+  position: relative;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+#discord-settings-view .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#discord-settings-view .item-title {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  color: #c8cbf6; /* Light lavender */
+}
+
+#discord-settings-view .item-type-indicator {
+  font-size: 10px;
+  color: #a3a7d4; /* Medium lavender */
+  margin-left: 5px;
+  font-style: italic;
+  font-weight: normal;
+}
+
+#discord-settings-view .item-delete {
+  cursor: pointer;
+  color: #db5461; /* Error red */
+  padding: 0 5px;
+}
+
+#discord-settings-view .item-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+#discord-settings-view .keyword-tag {
+  background-color: #1f2347; /* Dark navy blue */
+  color: #c8cbf6; /* Light lavender */
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+#discord-settings-view .keyword-remove {
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#discord-settings-view .add-keyword {
+  margin-top: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+#discord-settings-view .add-keyword input {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+#discord-settings-view .add-keyword textarea {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  min-height: 50px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+#discord-settings-view .add-keyword button {
+  padding: 5px 8px;
+  background-color: #272d5e; /* Medium navy blue */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+#discord-settings-view .add-keyword button:hover {
+  background-color: #374082; /* Brighter blue */
+}
+
+/* Add Item Form */
+#discord-settings-view .add-channel {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+#discord-settings-view .add-channel input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Webhook Input Style */
+#discord-settings-view .webhook-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Help Text */
+#discord-settings-view #discord-help-text { /* Prefixed ID */
+  font-size: 12px;
+  color: #a3a7d4; /* Medium lavender */
+  background-color: #151833; /* Slightly lighter navy */
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+#discord-settings-view #discord-help-text p {
+  margin-bottom: 8px;
+}
+
+#discord-settings-view #discord-help-text ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+#discord-settings-view #discord-help-text li {
+  margin-bottom: 3px;
+}
+
+/* Log Link Style */
+#discord-settings-view .log-link {
+  color: #a3a7d4; /* Medium lavender */
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#discord-settings-view .log-link:hover {
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Copy Keywords Icon */
+#discord-settings-view .item-copy-keywords {
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s;
+  color: #a3a7d4; /* Medium lavender */
+}
+
+#discord-settings-view .item-copy-keywords:hover {
+  opacity: 1;
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* --- End Appended Discord Monitor Styles --- */

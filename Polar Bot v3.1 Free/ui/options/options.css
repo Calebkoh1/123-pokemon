@@ -1,0 +1,359 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0c1b; /* Very dark navy/midnight blue */
+  color: #c8cbf6; /* Light lavender text */
+  box-shadow: inset 0 0 20px rgba(39, 45, 94, 0.15); /* Subtle glow */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #151833; /* Slightly lighter navy */
+  color: #c8cbf6; /* Light lavender text */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #272d5e; /* Medium navy blue */
+  box-shadow: 0 4px 6px -6px #151833; /* Subtle shadow */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #c8cbf6; /* Light lavender text */
+}
+
+/* Style for hyperlinks */
+.container a {
+  color: #00b8ff; /* Bright blue for better visibility */
+  text-decoration: underline; /* Ensure links are clearly underlined */
+}
+
+.container a:hover {
+  color: #33c8ff; /* Slightly lighter blue on hover */
+  text-decoration: none; /* Optional: remove underline on hover */
+}
+
+.card {
+  background-color: #151833; /* Slightly lighter navy */
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(39, 45, 94, 0.1); /* Subtle shadow */
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: #0a0c1b; /* Very dark navy */
+  padding: 15px 20px;
+  border-bottom: 1px solid #272d5e; /* Medium navy blue */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #c8cbf6; /* Light lavender text */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.form-col {
+  padding: 0 10px;
+  flex: 1;
+  min-width: 150px; /* Reduced from 200px to fit better on smaller screens */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .form-col {
+    min-width: 100%; /* Full width on small screens */
+    margin-bottom: 10px; /* Add spacing between stacked columns */
+  }
+  
+  .form-row {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #a3a7d4; /* Medium lavender */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender text */
+}
+
+.btn {
+  display: inline-block;
+  background-color: #272d5e; /* Medium navy blue */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  background-color: #3a70e3; /* Brighter blue */
+  box-shadow: 0 0 6px rgba(58, 112, 227, 0.5); /* Subtle glow */
+}
+
+.btn-secondary {
+  background-color: #1f2347; /* Dark navy blue */
+}
+
+.btn-secondary:hover {
+  background-color: #272d5e; /* Medium navy blue */
+}
+
+.profile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-item {
+  padding: 15px;
+  border-bottom: 1px solid #272d5e; /* Medium navy blue */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-item:last-child {
+  border-bottom: none;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #c8cbf6; /* Light lavender text */
+}
+
+.profile-details {
+  color: #a3a7d4; /* Medium lavender */
+  font-size: 13px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #a3a7d4; /* Medium lavender */
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.action-btn:hover {
+  color: #c8cbf6; /* Light lavender text */
+  text-decoration: none;
+}
+
+.action-btn.delete {
+  color: #db5461; /* Error red */
+}
+
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  color: #a3a7d4; /* Medium lavender */
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #272d5e; /* Medium navy blue */
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  color: #a3a7d4; /* Medium lavender */
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab.active {
+  border-bottom-color: #272d5e; /* Medium navy blue */
+  color: #c8cbf6; /* Light lavender text */
+  font-weight: bold;
+}
+
+.tab:hover:not(.active) {
+  border-bottom-color: #1f2347; /* Dark navy blue */
+  color: #c8cbf6; /* Light lavender text */
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.success-message {
+  background-color: rgba(55, 64, 130, 0.2); /* Translucent blue */
+  color: #374082; /* Brighter blue */
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: none;
+  border: 1px solid #374082; /* Brighter blue */
+}
+
+.error-message {
+  background-color: rgba(219, 84, 97, 0.2); /* Translucent red */
+  color: #db5461; /* Error red */
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: none;
+  border: 1px solid #db5461; /* Error red */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 12, 27, 0.8); /* Translucent midnight blue */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 15px; /* Add padding to prevent modal from touching screen edges */
+  box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+.modal-content {
+  background-color: #0a0c1b; /* Very dark navy */
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh; /* Limit height to 90% of viewport height */
+  box-shadow: 0 0 15px rgba(39, 45, 94, 0.3); /* Subtle shadow */
+  border: 1px solid #272d5e; /* Medium navy blue */
+  display: flex;
+  flex-direction: column; /* Stack header, body, footer vertically */
+}
+
+/* Media queries for responsive modal */
+@media (max-width: 520px) {
+  .modal-content {
+    max-width: 100%; /* Full width on small screens */
+    height: auto; /* Let height adjust naturally */
+  }
+  
+  .modal-body {
+    padding: 15px; /* Smaller padding on mobile */
+  }
+  
+  /* Ensure payment fields stack properly on mobile */
+  #profile-form h3 {
+    margin-top: 20px; /* Add more spacing before section headings */
+  }
+  
+  /* Improve footer button layout on small screens */
+  .modal-footer {
+    flex-direction: column-reverse; /* Stack buttons */
+    gap: 8px; /* Smaller gap between stacked buttons */
+  }
+  
+  .modal-footer .btn {
+    width: 100%; /* Full width buttons */
+    text-align: center;
+  }
+}
+
+.modal-header {
+  background-color: #151833; /* Slightly lighter navy */
+  padding: 15px 20px;
+  border-bottom: 1px solid #272d5e; /* Medium navy blue */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #c8cbf6; /* Light lavender text */
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  flex: 1; /* Allow this section to grow and scroll */
+}
+
+.modal-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #272d5e; /* Medium navy blue */
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 20px;
+  color: #a3a7d4; /* Medium lavender */
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #c8cbf6; /* Light lavender text */
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  font-family: monospace;
+  resize: vertical;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender text */
+}

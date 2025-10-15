@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polar Assist Bot v3</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="price-check.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div class="header">
+    <h1>Polar Assist Bot v3 (free vers.)</h1>
+    <!-- Global toggle removed as requested -->
+  </div>
+
+  <!-- Per-Site Configuration -->
+  <div class="sites-config">
+    <div class="site-config" data-site="target">
+      <img src="../../icons/target_logo.png" alt="Target Logo" class="site-logo">
+      <div class="site-controls">
+        <label class="site-toggle-switch">
+          <input type="checkbox" class="site-toggle">
+          <span class="site-slider"></span>
+        </label>
+        <div class="site-input-group">
+          <label for="target-quantity" class="sr-only">Target Quantity</label>
+          <input type="number" id="target-quantity" class="site-quantity" min="1" value="1" title="Quantity">
+          <label for="target-profile-select" class="sr-only">Target Profile</label>
+          <select id="target-profile-select" class="site-profile-select" title="Profile">
+            <option value="">Default Profile</option>
+            <!-- Profiles loaded by JS -->
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Add more sites here -->
+  </div>
+
+  <!-- Global Settings -->
+  <div class="section" id="global-settings">
+    <h2>Checkout Behavior</h2>
+    <div class="form-row">
+      <input type="checkbox" id="auto-submit" checked>
+      <label for="auto-submit">Complete checkout automatically</label>
+    </div>
+    <div class="form-row">
+      <input type="checkbox" id="use-buy-now">
+      <label for="use-buy-now">Use 'Buy now' button when available (BETA)</label>
+    </div>
+    <div class="form-row">
+      <input type="checkbox" id="auto-close-oos">
+      <label for="auto-close-oos">Auto-close cart page</label>
+    </div>
+  </div>
+
+  <!-- Auto Monitoring Section -->
+  <div class="section" id="auto-monitoring-section">
+    <h2>Auto Monitoring</h2>
+    <p style="color: #888; text-align: center; margin: 20px 0;">Auto Monitoring for premium members only</p>
+  </div>
+
+  <!-- Price Check Section -->
+  <div class="section" id="price-check-main-view">
+    <h2>Price Check</h2>
+    <div class="status-item" style="margin-bottom: 8px;">
+        <span>Status:</span>
+        <span id="price-check-status-main">Inactive</span>
+    </div>
+    <div class="form-row" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center;">
+        <span style="margin-right: 8px;">Active:</span>
+        <label class="toggle" for="price-check-active-toggle">
+          <input type="checkbox" id="price-check-active-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button id="price-check-settings-btn" class="btn-icon" title="Price Check Settings" style="background: none; border: none; font-size: 1.5em; cursor: pointer; color: #555; padding: 0 8px;">⚙️</button>
+    </div>
+  </div>
+
+  <!-- Proxy Settings Section (optional) -->
+  <div class="section" id="proxy-settings-section">
+    <h2>Proxy Settings (optional)</h2>
+    <div class="form-row">
+      <input type="text" id="proxy-input" placeholder="IP:Port:username:password" class="full-width-input">
+    </div>
+  </div>
+
+
+  <!-- Price Check Settings View (Hidden by default) -->
+  <div id="price-check-settings-view" style="display: none;">
+    <div class="container">
+      <div class="header">
+        <button id="price-check-back-btn" class="btn btn-secondary btn-small">← Back</button>
+        <h1>Price Check Settings</h1>
+      </div>
+
+      <div id="price-check-status-container" class="section">
+        <div class="status-item">
+          <span>Status:</span>
+          <span id="price-check-status" class="status-online">Inactive</span>
+        </div>
+        <div class="status-item">
+          <label class="toggle-container">
+            <span>Active:</span>
+            <div class="toggle-wrapper">
+              <input type="checkbox" id="price-check-active-toggle-settings" checked>
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Price Check Settings</h2>
+        <div class="toggle-container">
+          <span>Close tab if price check fails:</span>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="price-check-close-tab-toggle">
+            <span class="toggle-slider"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Add Price Check</h2>
+        <div class="price-check-input-form">
+          <div class="input-row">
+            <input type="text" id="price-check-sku-input" placeholder="SKU/TCIN" style="flex: 2;">
+            <input type="number" id="price-check-price-input" placeholder="Max Price" min="0" step="0.01" style="flex: 1;">
+            <button id="price-check-add-btn">Add</button>
+          </div>
+        </div>
+
+        <div class="mass-input-container">
+          <h3>Mass Input</h3>
+          <p><small>Format: SKU;maxprice (one per line, e.g. 12345;30.99)</small></p>
+          <textarea id="price-check-mass-input" placeholder="Enter multiple items in SKU;maxprice format, one per line"></textarea>
+          <button id="price-check-mass-add-btn" style="margin-top: 8px;">Add All</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Current Price Checks</h2>
+        <div id="price-check-items-container" class="price-check-items">
+          <!-- Price check items will be added here dynamically -->
+        </div>
+        <div class="copy-buttons-container">
+          <button id="copy-skus-btn">Copy SKUs</button>
+          <button id="copy-max-price-btn">Copy Max Price</button>
+        </div>
+      </div>
+
+      <!-- Help text section removed for cleaner UI -->
+    </div>
+  </div>
+  <!-- End Price Check Settings View -->
+
+  <!-- Status (hidden but needed for JS) -->
+  <div class="status status-waiting" style="display: none;">
+    <div class="status-indicator"></div>
+    <span id="status-text">Waiting for supported page...</span>
+  </div>
+
+  <div class="footer">
+    <a href="../options/options.html" target="_blank">Manage Profiles & Settings</a>
+    <span id="version">v1.0</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

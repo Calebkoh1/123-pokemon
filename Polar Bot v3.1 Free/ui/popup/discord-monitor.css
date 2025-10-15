@@ -1,0 +1,477 @@
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a0c1b; /* Very dark navy/midnight blue */
+  color: #c8cbf6; /* Light lavender text */
+  width: 350px;
+  padding: 15px;
+  box-shadow: inset 0 0 20px rgba(39, 45, 94, 0.15); /* Subtle glow */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 18px;
+  text-align: center;
+  color: #c8cbf6; /* Light lavender text */
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #c8cbf6; /* Light lavender text */
+}
+
+/* Status Section */
+#status-container {
+  background-color: #151833; /* Slightly lighter navy */
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-online {
+  color: #374082; /* Brighter blue */
+}
+
+.status-offline {
+  color: #db5461; /* Error red */
+}
+
+.status-found {
+  color: #374082; /* Brighter blue */
+}
+
+.status-not-found {
+  color: #db5461; /* Error red */
+}
+
+/* Toggle Switch */
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.toggle-wrapper {
+  position: relative;
+  width: 40px;
+  height: 22px;
+}
+
+.toggle-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #151833; /* Slightly lighter navy */
+  transition: .4s;
+  border-radius: 34px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #c8cbf6; /* Light lavender */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #3a70e3; /* Brighter blue */
+  box-shadow: 0 0 6px #3a70e3; /* Stronger glow */
+}
+
+input:checked + .toggle-slider:before {
+  background-color: #ffffff; /* White circle when on */
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(18px);
+}
+
+/* Small toggle for multi-SKU mode */
+.multi-sku-toggle-container .toggle-wrapper {
+  width: 28px;
+  height: 16px;
+}
+
+.multi-sku-toggle-container .toggle-slider:before {
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+}
+
+.multi-sku-toggle-container input:checked + .toggle-slider:before {
+  transform: translateX(12px);
+}
+
+.multi-sku-toggle-container {
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+/* Cooldown Settings */
+.cooldown-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-item input[type="number"] {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  border-radius: 4px;
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  text-align: center;
+}
+
+#save-cooldowns-btn {
+  margin-top: 8px;
+  align-self: flex-end;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #272d5e; /* Medium navy blue */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #374082; /* Brighter blue */
+}
+
+.btn-danger {
+  background-color: #db5461; /* Error red */
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #e07983; /* Lighter red */
+}
+
+.btn-secondary {
+  background-color: #1f2347; /* Dark navy blue */
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #272d5e; /* Medium navy blue */
+}
+
+/* Smaller button variant */
+.btn-small {
+  padding: 5px 10px; /* Reduced padding */
+  font-size: 12px; /* Optionally smaller font */
+}
+
+/* Sections */
+.section {
+  background-color: #151833; /* Slightly lighter navy */
+  border-radius: 5px;
+  padding: 12px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  margin-bottom: 15px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Monitored Items List (Channels/Categories) */
+#channels-container { /* Keep ID for now, but treat as item container */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.empty-message {
+  color: #a3a7d4; /* Medium lavender */
+  text-align: center;
+  padding: 10px 0;
+}
+
+.item-container { /* Generic class for channel or category item */
+  background-color: #0a0c1b; /* Very dark navy */
+  border-radius: 4px;
+  padding: 10px;
+  position: relative;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.item-header { /* Generic header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-title { /* Generic title */
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex; /* To align indicator */
+  align-items: center;
+  color: #c8cbf6; /* Light lavender */
+  max-width: 85%;
+}
+
+.item-type-indicator { /* Style for "(Category)" text */
+  font-size: 10px;
+  color: #a3a7d4; /* Medium lavender */
+  margin-left: 5px;
+  font-style: italic;
+  font-weight: normal; /* Make indicator less prominent */
+}
+
+.item-delete { /* Generic delete button */
+  cursor: pointer;
+  color: #db5461; /* Error red */
+  padding: 0 5px; /* Add some clickable area */
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
+.item-keywords { /* Generic keywords container */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.keyword-tag {
+  background-color: #1f2347; /* Dark navy blue */
+  color: #c8cbf6; /* Light lavender */
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.keyword-remove {
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-keyword {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-keyword input {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  min-width: 0;
+}
+
+.add-keyword textarea {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  min-height: 50px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.add-keyword button {
+  padding: 5px 8px;
+  background-color: #272d5e; /* Medium navy blue */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-keyword button:hover {
+  background-color: #374082; /* Brighter blue */
+}
+
+/* Add Item Form */
+.add-channel { /* Keep ID for now, treat as add-item form */
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.add-channel input { /* Keep selector for now */
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+  min-width: 0;
+}
+
+/* Webhook Input Style */
+.webhook-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+  background-color: #0a0c1b; /* Very dark navy */
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Help Text */
+#help-text {
+  font-size: 12px;
+  color: #a3a7d4; /* Medium lavender */
+  background-color: #151833; /* Slightly lighter navy */
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #272d5e; /* Medium navy blue */
+}
+
+#help-text p {
+  margin-bottom: 8px;
+}
+
+#help-text ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+#help-text li {
+  margin-bottom: 3px;
+}
+
+/* Log Link Style (Req 3) */
+.log-link {
+  color: #a3a7d4; /* Medium lavender */
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.log-link:hover {
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Style for the copy keywords icon */
+.item-copy-keywords {
+  margin-left: 8px; /* Space from title */
+  cursor: pointer;
+  font-size: 14px; /* Adjust size as needed */
+  opacity: 0.7; /* Make it slightly less prominent */
+  transition: opacity 0.2s, color 0.2s;
+  color: #a3a7d4; /* Medium lavender */
+}
+
+.item-copy-keywords:hover {
+  opacity: 1;
+  color: #c8cbf6; /* Light lavender */
+}
+
+/* Discord Monitor Settings header styling */
+#discord-settings-view .header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: none;
+  box-shadow: none;
+  padding-bottom: 0;
+}
+
+/* Multi-SKU toggle specific styling */
+.multi-sku-toggle {
+  display: none;  /* Hide the old button toggle */
+}
+
+.multi-sku-toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 4px 0;
+}
+
+/* Ensure the webhook buttons don't overflow */
+.webhook-settings button {
+  white-space: nowrap;
+}
+
+/* Specific fix for the empty keywords message */
+.empty-keywords {
+  color: #a3a7d4;
+  font-style: italic;
+  font-size: 12px;
+}
